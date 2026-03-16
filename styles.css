@@ -1,0 +1,248 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+
+.hoverEffect:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: 85px;
+}
+
+.header > * {
+  border: 1px solid black;
+}
+
+.header-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  text-align: start;
+}
+
+.header-menu-item {
+  display: flex;
+  align-items: center;
+  padding-inline: 35px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+}
+
+.header-menu-item:nth-child(2) {
+  border-left: 1px solid black;
+}
+
+main {
+  margin-top: 85px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: 350px;
+  border: 1px solid black;
+  border-top: none;
+}
+
+.hero-label {
+  display: grid;
+  align-items: center;
+  padding-left: 65px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    ". content"
+    ". note"
+    ". meta"
+    ". email";
+  grid-auto-rows: minmax(100px, auto);
+  border-bottom: 1px solid black;
+}
+
+.submission-content {
+  grid-area: content;
+  min-height: 400px;
+  padding: 2rem 4rem;
+  border: 1px solid black;
+  border-top: none;
+}
+
+.submission-content p + p {
+  margin-top: 1.5rem;
+}
+
+.submission-content p + ul {
+  margin-top: 1.5rem;
+}
+
+.submission-content ul {
+  margin-left: 50px;
+  list-style: square;
+  margin-bottom: 30px;
+}
+
+.submission-note {
+  grid-area: note;
+  border: 1px solid black;
+  border-top: none;
+  min-height: 75px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 64px;
+}
+
+.submission-meta {
+  grid-area: meta;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.submission-features,
+.submission-cost {
+  border: 1px solid black;
+  border-top: none;
+}
+
+.submission-features > p {
+  padding-top: 25px;
+  padding-left: 65px;
+}
+
+.submission-features > ul {
+  margin-left: 105px;
+  list-style: square;
+}
+
+.submission-cost {
+  border-left: none;
+  padding: 1.4rem;
+}
+
+.submission-cost-copy {
+  margin-top: 2.4rem;
+  text-align: center;
+}
+
+.submission-email {
+  grid-area: email;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-top: none;
+  border-bottom: none;
+}
+
+.submission-email-link {
+  color: black;
+  text-decoration: none;
+}
+
+.submission-email:hover .submission-email-link {
+  color: white;
+}
+
+.submission-email:hover {
+  cursor: pointer;
+  background-color: black;
+}
+
+@media (max-width: 768px) {
+  .header {
+    position: static;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 60px;
+  }
+
+  .header-brand,
+  .header-menu {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+
+  .header-menu {
+    border-top: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+    border-top: none;
+  }
+
+  .hero-label {
+    padding-left: 1.5rem;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "note"
+      "meta"
+      "email";
+  }
+
+  .submission-content,
+  .submission-note,
+  .submission-meta,
+  .submission-email {
+    border-left: 1px solid black;
+    padding: 1.5rem;
+  }
+
+  .submission-note {
+    padding-left: 1.5rem;
+  }
+
+  .submission-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .submission-features > p {
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .submission-features > ul {
+    margin-left: 3rem;
+  }
+
+  .submission-cost {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    padding: 1.5rem;
+  }
+}
